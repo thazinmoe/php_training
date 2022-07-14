@@ -1,5 +1,6 @@
 <?php 
 phpinfo();
+$a = 4;
 //function add($a, ...$b) {
 // print_r($b);
 //}
