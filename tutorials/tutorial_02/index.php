@@ -1,7 +1,25 @@
-<?php 
-function add($a, ...$b) {
- print_r($b);
+<?php
+$n = 6;
+for ($i = 1; $i <= $n; $i++) {
+    for ($j = 1; $j <= (2 * $n) - 1; $j++) {
+        if ($j >= $n - ($i - 1) && $j <= $n + ($i - 1)) {
+            echo "*";
+            //echo "$j";
+        } else {
+            echo "&nbsp;&nbsp;";
+        }
+    }
+    echo '</br>';
 }
-add(1, 2, 3, 4);
-// Array ( [0] => 2 [1] => 3 [2] => 4 )
+for ($i = $n - 1; $i >= 1; $i--) {
+    for ($j = 1; $j <= (2 * $n) - 1; $j++) {
+        if ($j >= $n - ($i - 1) && $j <= $n + ($i - 1)) {
+            echo "*";
+            //echo "$j";
+        } else {
+            echo "&nbsp;&nbsp;";
+        }
+    }
+    echo '</br>';
+}
 ?>
