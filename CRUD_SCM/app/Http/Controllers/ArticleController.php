@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Contracts\Services\CrudServiceInterface;
 use App\Models\Article;
 use Illuminate\Http\Request;
+use App\Exports\ArticleExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Contracts\Services\CrudServiceInterface;
+use App\Imports\ArticleImport;
 
 class ArticleController extends Controller
 {
@@ -81,4 +84,25 @@ class ArticleController extends Controller
         $article = $this->crudInterface->deleteArticle($id);
         return redirect('/articles')->with('info', 'Article deleted');
     }
+
+    public function exportexcel(){
+        return Excel::download(new ArticleExport,'article.xlsx');
+    }
+
+    public function importexcel(Request $request){
+        Excel::import(new ArticleImport, $request->file('file')->store('files'));
+        return redirect()->back();
+//        $data = $request->file('file');
+//
+//        $namefile = $data->getClientOriginalName();
+//        $data->move('ArticleData', $namefile);
+//
+//        Excel::import(new ArticleImport, \public_path('/ArticleData/',$namefile));
+//        return \redirect()->back();
+    }
+
+    //public function import(Request $request){
+    //    Excel::import(new ImportUser, $request->file('file')->store('files'));
+    //    return redirect()->back();
+    //}
 }

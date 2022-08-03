@@ -15,6 +15,37 @@
       {{ session('info') }}
     </div>
     @endif
+    <a href="/exportexcel" class="btn btn-info mb-4">Export Excel</a>
+    <a href="" class="btn btn-success mb-4" data-toggle="modal" data-target="#exampleModal">Import Excel</a>
+    <!--Start Test Modal -->
+    <!-- Button trigger modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <form action="/importexcel" method="POST" enctype="multipart/form-data">
+            @csrf
+
+            <div class="modal-body">
+              <div class="form-group">
+                <input type="file" name="file" required/>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Import</button>
+            </div>
+        </div>
+        </form>
+      </div>
+    </div>
+    <!-- End Test Modal -->
     {{ $articles->links() }}
     @foreach($articles as $hi)
     <div class="card mb-2">

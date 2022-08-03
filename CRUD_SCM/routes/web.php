@@ -79,3 +79,13 @@ Route::get('/comments/delete/{id}', [
     CommentController::class,
     'delete'
 ]);
+//Export Excel
+Route::get('/exportexcel', [
+    ArticleController::class,
+    'exportexcel'
+])->name('exportexcel');
+//Import Excel
+Route::post('/importexcel', [
+    ArticleController::class,
+    'importexcel'
+])->name('importexcel');

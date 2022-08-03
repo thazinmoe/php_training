@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     use HasFactory;
-    protected $fillable = ['fname','lname','title','body'];   
+    protected $fillable = ['fname','lname','title','body','category'];   
     public function comments()
     {
         return $this->hasMany('App\Models\Comment');
