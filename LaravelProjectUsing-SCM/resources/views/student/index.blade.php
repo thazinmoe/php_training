@@ -94,9 +94,10 @@
               </tr>
             </thead>
             <tbody>
-              @foreach ($student as $item)
+              @foreach ($student as $key =>$item)
               <tr>
-                <td>{{ $item->id }}</td>
+                <!--<td>{{ $item->id }}</td>-->
+                <td >{{ ++$key }}</td>
                 <td>{{ $item->name }}</td>
                 <td>{{ $item->email }}</td>
                 <td>{{$item->major_name}}</td>

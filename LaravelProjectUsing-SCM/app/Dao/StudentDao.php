@@ -32,7 +32,8 @@ class StudentDao implements StudentDaoInterface
         $toDate = $request->input('toDate');
         $students = DB::table('students')
                 ->join('majors','students.major_id', '=','majors.id')               
-                ->select('students.*','majors.major_name');
+                ->select('students.*','majors.major_name')
+                ->orderBy('id', 'DESC');
                 
        if ($name) {
             $students->where('students.name', 'LIKE', '%' . $name . '%');

@@ -17,9 +17,11 @@ class StudentExport implements FromCollection
         return DB::table('students')
         ->join('majors','students.major_id', '=','majors.id')        
         ->select([
+            'students.id',
             'name',
             'email',
-            'majors.major_name',
+            //'majors.major_name',
+            'major_id',
             'course',
             'address',
             'students.created_at',

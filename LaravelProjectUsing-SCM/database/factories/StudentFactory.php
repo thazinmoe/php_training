@@ -17,6 +17,7 @@ class StudentFactory extends Factory
         return [
             'name' => $this->faker->sentence,
             'email' => $this->faker->paragraph,
+            //'email' => $this->Str::random(10).'@gmail.com',
             'major_id' => rand(1, 2),
             'course' => $this->faker->sentence,
             'address' => $this->faker->sentence,
