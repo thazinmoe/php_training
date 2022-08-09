@@ -63,6 +63,7 @@ class StudentDao implements StudentDaoInterface
         $student->course = $request->course;
         $student->address = $request->address;       
         $student->save();
+        $student->notify(new WelcomeEmailNotification($student));
         return $student;
     }
 

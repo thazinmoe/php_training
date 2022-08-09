@@ -39,11 +39,9 @@
 </head>
 
 <body>
-    <div id="barchart_material" style="width: 900px;height: 500px; margin:40px 50px;"></div>
-    <div class="text-center">
-    <a href="index.php" class="link-primary font-weight-bold pl-3">Read</a>
-    <a href="create.php" class="link-primary font-weight-bold pl-5">Create</a>
-    </div>
+    <div id="barchart_material" style="width: 900px;height: 500px;"></div>
+    <a href="index.php" class="link-primary pl-3">Read</a>
+    <a href="create.php" class="link-primary pl-5">Create</a>
 </body>
 
 </html>

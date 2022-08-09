@@ -46,6 +46,7 @@
                     </div>
                     <div class="form-group">
                         <input class="form-control" type="email" name="email" placeholder="Email Address" required value="<?php echo $email ?>">
+                        <span class="error">* <?php echo $emailErr;?></span>
                     </div>
                     <div class="form-group">
                         <input class="form-control" type="password" name="password" placeholder="Password" required>

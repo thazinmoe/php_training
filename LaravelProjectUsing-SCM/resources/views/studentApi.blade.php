@@ -287,8 +287,7 @@
         'name': $('#name').val(),
         'email': $('#email').val(),
         'major_id': $('#major_id').val(),
-        'course': $('#course').val(),
-        'major_name': $('#major_name').val(),
+        'course': $('#course').val(),       
         'address': $('#address').val(),
       }
 

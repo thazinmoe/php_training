@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutorial 06</title>
-    <link href="css/reset.css" rel="stylesheet" />
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <title>Tutorial 6</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 
 <body>
@@ -18,13 +18,18 @@
                 Cannot upload file!
             </div>
         <?php endif ?>
+        <?php if (isset($_GET['success'])) : ?>
+            <div class="alert alert-success">
+                Image successfully created!
+            </div>
+        <?php endif ?>
         <div class="m-4">
             <form action="upload.php" method="post" enctype="multipart/form-data">
-               <input type="file" name="fileToUpload" class="form-control mb-3" id="fileToUpload"/>
-               <input type="text" class="form-control mb-3" name="foldername" placeholder="Enter your folder name"/>
-               <input type="submit" class="btn btn-outline-primary" name="submit" value="Create Folder And Upload Image"/> 
+                <input type="file" name="fileToUpload" class="form-control mb-3" id="fileToUpload">
+                <input type="text" class="form-control mb-3" name="foldername" placeholder="Enter Your folder name">
+                <input type="submit" class="btn btn-outline-primary" name="submit" value="Create Folder and upload image">
             </form>
-        </div>  
+        </div>
     </div>
 </body>
 

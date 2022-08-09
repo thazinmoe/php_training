@@ -34,14 +34,8 @@ class StudentController extends Controller
     {
         $this->middleware('auth');
         $this->studentInterface = $studentServiceInterface;
-    }
+    }   
    
-    /**
-     * Display a listing of the resource.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {
         $student = $this->studentInterface->getStudentList($request);
@@ -49,12 +43,7 @@ class StudentController extends Controller
             return view('student.index')->with('student',$student);
         }
      }
-
-     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
 
@@ -63,12 +52,7 @@ class StudentController extends Controller
             'majors' => $data,
         ]);
     }
-
-    /**
-     * To check post store form and redirect to confirm page.
-     * @param PostCreateRequest $request Request form post create
-     * @return View post store confirm
-     */
+    
     public function store(StoreStudentRequest $request)
     {
        $student = $this->studentInterface->saveStudent($request);
@@ -76,12 +60,7 @@ class StudentController extends Controller
             return redirect('/')->with('status', 'Student Added Successfully');
         }
     }
-
-    /**
-     * To check post edit form and redirect to confirm page.
-     * @param PostCreateRequest $request Request form post create
-     * @return View post edit confirm
-     */
+   
     public function edit($id)
     {
         $data = Major::all();
@@ -91,12 +70,7 @@ class StudentController extends Controller
             'majors' => $data,
         ]);
     }
-
-    /**
-     * To check post update form and redirect to confirm page.
-     * @param PostCreateRequest $request Request form post create
-     * @return View post update confirm
-     */
+    
     public function update(StoreStudentRequest $request, $id)
     {
         $student = $this->studentInterface->updateStudent($request, $id);
@@ -138,6 +112,34 @@ class StudentController extends Controller
     {
         $student = $this->studentInterface->getImportExcel($request);
         return $student;
-    }    
+    }  
+      /**
+     * Show the form for email to send.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showMailForm()
+    {
+        return view('student.emailForm');
+    }
+
+    /**
+     * Send email
+     * 
+     * @param \Illuminate\Http\Request $request 
+     * @return \Illuminate\Http\Response
+     */
+    public function postMailForm(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email'
+        ]);
+
+        // Check email is sent successfully or not
+        if ($this->studentInterface->sendMail($request)) {
+            return redirect('/')
+                ->with('success', 'Email is sent successfully.');
+        }
+    }  
    
 }

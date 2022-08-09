@@ -9,7 +9,7 @@
 
 <body>
     <div class="containers">
-        <form action="php/create.php" class="bg-light" method="post">
+        <form action="php/create.php" method="post">
             <h4 class="display-4 text-center">Create.</h4>
             <hr><br>
             <?php if (isset($_GET['error'])) { ?>
@@ -24,7 +24,7 @@
             </div>
             <div class="form-group">
                 <label for="age">Enter age</label>
-                <input type="number" class="form-control" id="age" name="age" value="<?php if (isset($_GET['age']))
+                <input type="name" class="form-control" id="age" name="age" value="<?php if (isset($_GET['age']))
                                                                                             echo ($_GET['age']); ?>" placeholder="Enter your age">
             </div>
            <button type="submit" class="btn btn-primary" name="create">Create</button>

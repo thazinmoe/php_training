@@ -122,3 +122,4 @@ h1 {
 	display: flex;
 	justify-content: flex-end;
 }
+.error {color: #FF0000;}

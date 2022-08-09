@@ -7,7 +7,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4>Edit Student 
+          <h4>Edit Student with IMAGE
             <a href="{{ url('students') }}" class="btn btn-danger float-end">BACK</a>
           </h4>
         </div>

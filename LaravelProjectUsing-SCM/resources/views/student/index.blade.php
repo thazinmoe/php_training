@@ -14,6 +14,7 @@
             <a href="{{ url('add-student') }}" class="btn btn-primary float-end">Add Student</a>
           </h4>       
           <a class="btn btn-success mt-4" href="/export-excel"> Export EXCEL</a>   
+          <a class="btn btn-danger mt-4" href="/mail">Email All data</a>
           <!--import -->
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-primary mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -47,7 +48,7 @@
           <form action="/" method="GET">
             @csrf
             <br>
-            <div class="container my-2">
+            <div class="container">
               <div class="row">
                 <div class="container-fluid">
                   <div class="form-group row">
@@ -67,7 +68,7 @@
                     <div class="col-sm-2">
                       <input type="date" class="form-control input-sm" id="to" name="toDate">
                     </div>
-                    <div class="col-sm-1">
+                    <div class="col-sm">
                       <button type="submit" class="btn btn-outline-success" name="search" title="Search">Search</button>
                     </div>
                   </div>

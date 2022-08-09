@@ -8,7 +8,7 @@
 
       <div class="card">
         <div class="card-header">
-          <h4>Add Student 
+          <h4>Add Student with IMAGE
             <a href="{{ url('students') }}" class="btn btn-danger float-end">BACK</a>
           </h4>
         </div>
